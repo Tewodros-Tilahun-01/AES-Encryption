@@ -17,7 +17,9 @@ function App() {
   useEffect(() => {
     const fetchWebsites = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/websites");
+        const response = await axios.get(
+          "https://aes-encryption.onrender.com//websites"
+        );
         setWebsites(response.data);
       } catch (error) {
         console.error("Error fetching websites:", error);
@@ -32,14 +34,17 @@ function App() {
 
   const handleSave = async () => {
     try {
-      const response = await axios.post("http://localhost:5000/add-website", {
-        website: site,
-        password,
-      });
+      const response = await axios.post(
+        "https://aes-encryption.onrender.com//add-website",
+        {
+          website: site,
+          password,
+        }
+      );
       if (response.status === 200) {
         // Fetch updated websites after adding
         const updatedResponse = await axios.get(
-          "http://localhost:5000/websites"
+          "https://aes-encryption.onrender.com//websites"
         );
         setWebsites(updatedResponse.data);
         setSite("");
@@ -60,7 +65,7 @@ function App() {
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(
-        `http://localhost:5000/delete-website/${id}`
+        `https://aes-encryption.onrender.com//delete-website/${id}`
       );
       if (response.status === 200) {
         // Update websites list after deletion
