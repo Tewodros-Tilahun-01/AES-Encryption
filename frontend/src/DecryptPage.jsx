@@ -13,7 +13,7 @@ function DecryptPage() {
   const handleDecrypt = async () => {
     try {
       const response = await axios.post(
-        `https://aes-encryption.onrender.com//decrypt-password/${id}`,
+        `https://aes-encryption.onrender.com/decrypt-password/${id}`,
         { enteredPassword }
       );
       setDecryptedData(response.data);

@@ -18,7 +18,7 @@ function App() {
     const fetchWebsites = async () => {
       try {
         const response = await axios.get(
-          "https://aes-encryption.onrender.com//websites"
+          "https://aes-encryption.onrender.com/websites"
         );
         setWebsites(response.data);
       } catch (error) {
@@ -35,7 +35,7 @@ function App() {
   const handleSave = async () => {
     try {
       const response = await axios.post(
-        "https://aes-encryption.onrender.com//add-website",
+        "https://aes-encryption.onrender.com/add-website",
         {
           website: site,
           password,
@@ -44,7 +44,7 @@ function App() {
       if (response.status === 200) {
         // Fetch updated websites after adding
         const updatedResponse = await axios.get(
-          "https://aes-encryption.onrender.com//websites"
+          "https://aes-encryption.onrender.com/websites"
         );
         setWebsites(updatedResponse.data);
         setSite("");
@@ -65,7 +65,7 @@ function App() {
   const handleDelete = async (id) => {
     try {
       const response = await axios.delete(
-        `https://aes-encryption.onrender.com//delete-website/${id}`
+        `https://aes-encryption.onrender.com/delete-website/${id}`
       );
       if (response.status === 200) {
         // Update websites list after deletion
